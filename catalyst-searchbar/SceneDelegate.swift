@@ -19,6 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         toolbarDelegate = ToolbarDelegate()
+        toolbarDelegate.shouldUseNSSearchBar = false
+        
         #if targetEnvironment(macCatalyst)
         let toolBar = NSToolbar(identifier: "primary")
         toolBar.delegate = toolbarDelegate
@@ -69,9 +71,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     private func setWindowSizeForMacOs(windowScene: UIWindowScene) {
         #if targetEnvironment(macCatalyst)
-        let scaledWidth: CGFloat = 800
-        let scaledHeight: CGFloat = 600
-        windowScene.sizeRestrictions?.minimumSize = CGSize(width: scaledWidth, height: scaledHeight)
+        let minWidth: CGFloat = 800
+        let minHeight: CGFloat = 600
+        windowScene.sizeRestrictions?.minimumSize = CGSize(width: minWidth, height: minHeight)
         #endif
     }
 

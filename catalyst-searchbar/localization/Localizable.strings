@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  catalyst-searchbar
+
+  Created by Turker Nessa Kucuk on 8/31/23.
+  
+*/
+
+"search_placeholder" = "Search";
