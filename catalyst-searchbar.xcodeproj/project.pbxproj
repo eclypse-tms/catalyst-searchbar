@@ -22,7 +22,7 @@
 		B1C809842AA0583500985ECB /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C809832AA0583500985ECB /* UIColor+Extensions.swift */; };
 		B1C809862AA0599F00985ECB /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C809852AA0599F00985ECB /* UIView+Extensions.swift */; };
 		B1C809882AA0C86000985ECB /* ToolbarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C809872AA0C86000985ECB /* ToolbarDelegate.swift */; };
-		B1C8098A2AA0DE7300985ECB /* CustomNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C809892AA0DE7300985ECB /* CustomNotification.swift */; };
+		B1C8098A2AA0DE7300985ECB /* InternalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C809892AA0DE7300985ECB /* InternalNotification.swift */; };
 		B1C809B12AA102D100985ECB /* macOSBridging.h in Headers */ = {isa = PBXBuildFile; fileRef = B1C809B02AA102D100985ECB /* macOSBridging.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1C809B72AA102E200985ECB /* macOSBridging.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1C809AE2AA102D000985ECB /* macOSBridging.framework */; platformFilter = maccatalyst; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B1F5CD1D2AA116F900CE3057 /* ToolbarSearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F5CD1C2AA116F900CE3057 /* ToolbarSearchField.swift */; };
@@ -75,7 +75,7 @@
 		B1C809832AA0583500985ECB /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		B1C809852AA0599F00985ECB /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		B1C809872AA0C86000985ECB /* ToolbarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarDelegate.swift; sourceTree = "<group>"; };
-		B1C809892AA0DE7300985ECB /* CustomNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNotification.swift; sourceTree = "<group>"; };
+		B1C809892AA0DE7300985ECB /* InternalNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalNotification.swift; sourceTree = "<group>"; };
 		B1C809AE2AA102D000985ECB /* macOSBridging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = macOSBridging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1C809B02AA102D100985ECB /* macOSBridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = macOSBridging.h; sourceTree = "<group>"; };
 		B1F5CD1C2AA116F900CE3057 /* ToolbarSearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarSearchField.swift; sourceTree = "<group>"; };
@@ -127,22 +127,19 @@
 		B156ECFD2A9FCBD900199AFE /* catalyst-searchbar */ = {
 			isa = PBXGroup;
 			children = (
-				B1F5CD282AA11F4E00CE3057 /* localization */,
 				B156ED122A9FCD7700199AFE /* catalyst-searchbar.entitlements */,
+				B156ED0C2A9FCBDB00199AFE /* Info.plist */,
+				B156ED152A9FD93000199AFE /* Main.storyboard */,
 				B156ECFE2A9FCBD900199AFE /* AppDelegate.swift */,
+				B1C809892AA0DE7300985ECB /* InternalNotification.swift */,
 				B156ED002A9FCBD900199AFE /* SceneDelegate.swift */,
 				B1C809872AA0C86000985ECB /* ToolbarDelegate.swift */,
-				B156ED022A9FCBD900199AFE /* ViewController.swift */,
-				B1C809802AA055EF00985ECB /* TagsLayoutSection.swift */,
-				B1C809752A9FEF7100985ECB /* TagViewModel.swift */,
-				B1C809772A9FF8CD00985ECB /* TagCell.swift */,
-				B1C809782A9FF8CD00985ECB /* TagCell.xib */,
-				B1C809892AA0DE7300985ECB /* CustomNotification.swift */,
-				B1C809822AA0582300985ECB /* utils */,
 				B156ED072A9FCBDB00199AFE /* Assets.xcassets */,
 				B156ED132A9FD5D100199AFE /* LaunchScreen.xib */,
-				B156ED152A9FD93000199AFE /* Main.storyboard */,
-				B156ED0C2A9FCBDB00199AFE /* Info.plist */,
+				B1F5CD282AA11F4E00CE3057 /* localization */,
+				B1F5CD2C2AA123A100CE3057 /* model */,
+				B1C809822AA0582300985ECB /* utils */,
+				B1F5CD2B2AA1238200CE3057 /* views */,
 			);
 			path = "catalyst-searchbar";
 			sourceTree = "<group>";
@@ -161,10 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				B1C809B02AA102D100985ECB /* macOSBridging.h */,
-				B1F5CD1C2AA116F900CE3057 /* ToolbarSearchField.swift */,
-				B1F5CD1E2AA1172700CE3057 /* ToolbarSearchFieldCell.swift */,
-				B1F5CD202AA1174400CE3057 /* CancelSearchDelegate.swift */,
-				B1F5CD222AA1176B00CE3057 /* SearchbarToolItem.swift */,
+				B1F5CD2D2AA123B300CE3057 /* searchbar */,
 				B1F5CD242AA118B800CE3057 /* InternalNotification.swift */,
 			);
 			path = macOSBridging;
@@ -183,6 +177,36 @@
 				B1F5CD292AA11F6C00CE3057 /* Localizable.strings */,
 			);
 			path = localization;
+			sourceTree = "<group>";
+		};
+		B1F5CD2B2AA1238200CE3057 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				B1C809802AA055EF00985ECB /* TagsLayoutSection.swift */,
+				B156ED022A9FCBD900199AFE /* ViewController.swift */,
+				B1C809772A9FF8CD00985ECB /* TagCell.swift */,
+				B1C809782A9FF8CD00985ECB /* TagCell.xib */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		B1F5CD2C2AA123A100CE3057 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				B1C809752A9FEF7100985ECB /* TagViewModel.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		B1F5CD2D2AA123B300CE3057 /* searchbar */ = {
+			isa = PBXGroup;
+			children = (
+				B1F5CD1C2AA116F900CE3057 /* ToolbarSearchField.swift */,
+				B1F5CD1E2AA1172700CE3057 /* ToolbarSearchFieldCell.swift */,
+				B1F5CD202AA1174400CE3057 /* CancelSearchDelegate.swift */,
+				B1F5CD222AA1176B00CE3057 /* SearchbarToolItem.swift */,
+			);
+			path = searchbar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,7 +333,7 @@
 			files = (
 				B1C809762A9FEF7100985ECB /* TagViewModel.swift in Sources */,
 				B156ED032A9FCBD900199AFE /* ViewController.swift in Sources */,
-				B1C8098A2AA0DE7300985ECB /* CustomNotification.swift in Sources */,
+				B1C8098A2AA0DE7300985ECB /* InternalNotification.swift in Sources */,
 				B1C809882AA0C86000985ECB /* ToolbarDelegate.swift in Sources */,
 				B1C809792A9FF8CD00985ECB /* TagCell.swift in Sources */,
 				B1C809862AA0599F00985ECB /* UIView+Extensions.swift in Sources */,
@@ -492,7 +516,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TARGETED_DEVICE_FAMILY = "2,6";
 			};
 			name = Debug;
 		};
@@ -528,7 +552,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TARGETED_DEVICE_FAMILY = "2,6";
 			};
 			name = Release;
 		};

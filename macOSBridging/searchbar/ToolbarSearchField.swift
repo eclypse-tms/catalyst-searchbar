@@ -1,12 +1,13 @@
 //
 //  ToolbarSearchField.swift
 //  
-//  Created by Turker Nessa Kucuk on 8/31/23.
+//  Created by Deniz Nessa on 8/31/23.
 //  Copyright © 2023 Eclypse Software, LLC. All rights reserved.
 //  
 
 import AppKit
 
+/// ToolbarSearchField
 class ToolbarSearchField: NSSearchField, CancelSearchDelegate {
     
     weak var cancelButtonDelegate: CancelSearchDelegate?
@@ -17,7 +18,6 @@ class ToolbarSearchField: NSSearchField, CancelSearchDelegate {
         let customCell = ToolbarSearchFieldCell()
         customCell.cancelButtonDelegate = self
         cell = customCell
-        //delegate = customCell
     }
     
     func didClickCancel() {

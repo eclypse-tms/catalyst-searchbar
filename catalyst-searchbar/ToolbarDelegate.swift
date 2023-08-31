@@ -1,7 +1,7 @@
 //
 //  ToolbarDelegate.swift
 //  
-//  Created by Turker Nessa Kucuk on 8/31/23.
+//  Created by Deniz Nessa on 8/31/23.
 //  Copyright © 2023 Eclypse Software, LLC. All rights reserved.
 //  
 
@@ -13,7 +13,7 @@ class ToolbarDelegate: NSObject {
 
 extension ToolbarDelegate: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        NotificationCenter.default.post(name: CustomNotification.toolbarSearchBarTextChanged.name, object: searchText)
+        NotificationCenter.default.post(name: InternalNotification.toolbarSearchBarTextChanged.name, object: searchText)
     }
 }
 
