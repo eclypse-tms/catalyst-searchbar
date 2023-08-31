@@ -10,13 +10,33 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    var toolbarDelegate: ToolbarDelegate!
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        
+        toolbarDelegate = ToolbarDelegate()
+        #if targetEnvironment(macCatalyst)
+        let toolBar = NSToolbar(identifier: "primary")
+        toolBar.delegate = toolbarDelegate
+        
+        toolBar.displayMode = .iconOnly
+        toolBar.allowsUserCustomization = false
+//        if #available(macCatalyst 16.0, *) {
+//            toolBar?.centeredItemIdentifiers = [MacToolbarItem.keyActionsSelector.toolbarIdentifier]
+//        } else {
+//            toolBar?.centeredItemIdentifier = MacToolbarItem.keyActionsSelector.toolbarIdentifier
+//        }
+        windowScene.title = "catalyst-searchbar"
+        windowScene.titlebar?.toolbar = toolBar
+        windowScene.titlebar?.separatorStyle = .shadow
+        windowScene.titlebar?.toolbarStyle = .unified
+        
+        setWindowSizeForMacOs(windowScene: windowScene)
+        #endif
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -47,6 +67,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
+    private func setWindowSizeForMacOs(windowScene: UIWindowScene) {
+        #if targetEnvironment(macCatalyst)
+        let scaledWidth: CGFloat = 800
+        let scaledHeight: CGFloat = 600
+        windowScene.sizeRestrictions?.minimumSize = CGSize(width: scaledWidth, height: scaledHeight)
+        #endif
+    }
 
 }
 

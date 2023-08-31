@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "composure",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/eclypse-tms/Composure",
+      "state" : {
+        "revision" : "8c34ca82e9819fed40c3b798b14a0f1164422521",
+        "version" : "1.2.1"
+      }
+    }
+  ],
+  "version" : 2
+}

@@ -10,9 +10,19 @@
 		B156ECFF2A9FCBD900199AFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B156ECFE2A9FCBD900199AFE /* AppDelegate.swift */; };
 		B156ED012A9FCBD900199AFE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B156ED002A9FCBD900199AFE /* SceneDelegate.swift */; };
 		B156ED032A9FCBD900199AFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B156ED022A9FCBD900199AFE /* ViewController.swift */; };
-		B156ED062A9FCBD900199AFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B156ED042A9FCBD900199AFE /* Main.storyboard */; };
 		B156ED082A9FCBDB00199AFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B156ED072A9FCBDB00199AFE /* Assets.xcassets */; };
-		B156ED0B2A9FCBDB00199AFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B156ED092A9FCBDB00199AFE /* LaunchScreen.storyboard */; };
+		B156ED142A9FD5D100199AFE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B156ED132A9FD5D100199AFE /* LaunchScreen.xib */; };
+		B156ED162A9FD93000199AFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B156ED152A9FD93000199AFE /* Main.storyboard */; };
+		B1C809762A9FEF7100985ECB /* TagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C809752A9FEF7100985ECB /* TagViewModel.swift */; };
+		B1C809792A9FF8CD00985ECB /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C809772A9FF8CD00985ECB /* TagCell.swift */; };
+		B1C8097A2A9FF8CD00985ECB /* TagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1C809782A9FF8CD00985ECB /* TagCell.xib */; };
+		B1C8097C2AA0541B00985ECB /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C8097B2AA0541B00985ECB /* NibLoadable.swift */; };
+		B1C8097F2AA055C600985ECB /* Composure in Frameworks */ = {isa = PBXBuildFile; productRef = B1C8097E2AA055C600985ECB /* Composure */; };
+		B1C809812AA055EF00985ECB /* TagsLayoutSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C809802AA055EF00985ECB /* TagsLayoutSection.swift */; };
+		B1C809842AA0583500985ECB /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C809832AA0583500985ECB /* UIColor+Extensions.swift */; };
+		B1C809862AA0599F00985ECB /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C809852AA0599F00985ECB /* UIView+Extensions.swift */; };
+		B1C809882AA0C86000985ECB /* ToolbarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C809872AA0C86000985ECB /* ToolbarDelegate.swift */; };
+		B1C8098A2AA0DE7300985ECB /* CustomNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C809892AA0DE7300985ECB /* CustomNotification.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +30,20 @@
 		B156ECFE2A9FCBD900199AFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B156ED002A9FCBD900199AFE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B156ED022A9FCBD900199AFE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B156ED052A9FCBD900199AFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B156ED072A9FCBDB00199AFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B156ED0A2A9FCBDB00199AFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B156ED0C2A9FCBDB00199AFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B156ED122A9FCD7700199AFE /* catalyst-searchbar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "catalyst-searchbar.entitlements"; sourceTree = "<group>"; };
+		B156ED132A9FD5D100199AFE /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		B156ED152A9FD93000199AFE /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		B1C809752A9FEF7100985ECB /* TagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewModel.swift; sourceTree = "<group>"; };
+		B1C809772A9FF8CD00985ECB /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
+		B1C809782A9FF8CD00985ECB /* TagCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagCell.xib; sourceTree = "<group>"; };
+		B1C8097B2AA0541B00985ECB /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		B1C809802AA055EF00985ECB /* TagsLayoutSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsLayoutSection.swift; sourceTree = "<group>"; };
+		B1C809832AA0583500985ECB /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		B1C809852AA0599F00985ECB /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		B1C809872AA0C86000985ECB /* ToolbarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarDelegate.swift; sourceTree = "<group>"; };
+		B1C809892AA0DE7300985ECB /* CustomNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNotification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1C8097F2AA055C600985ECB /* Composure in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +77,33 @@
 		B156ECFD2A9FCBD900199AFE /* catalyst-searchbar */ = {
 			isa = PBXGroup;
 			children = (
+				B156ED122A9FCD7700199AFE /* catalyst-searchbar.entitlements */,
 				B156ECFE2A9FCBD900199AFE /* AppDelegate.swift */,
 				B156ED002A9FCBD900199AFE /* SceneDelegate.swift */,
+				B1C809872AA0C86000985ECB /* ToolbarDelegate.swift */,
 				B156ED022A9FCBD900199AFE /* ViewController.swift */,
-				B156ED042A9FCBD900199AFE /* Main.storyboard */,
+				B1C809802AA055EF00985ECB /* TagsLayoutSection.swift */,
+				B1C809752A9FEF7100985ECB /* TagViewModel.swift */,
+				B1C809772A9FF8CD00985ECB /* TagCell.swift */,
+				B1C809782A9FF8CD00985ECB /* TagCell.xib */,
+				B1C809822AA0582300985ECB /* utils */,
 				B156ED072A9FCBDB00199AFE /* Assets.xcassets */,
-				B156ED092A9FCBDB00199AFE /* LaunchScreen.storyboard */,
+				B156ED132A9FD5D100199AFE /* LaunchScreen.xib */,
+				B156ED152A9FD93000199AFE /* Main.storyboard */,
 				B156ED0C2A9FCBDB00199AFE /* Info.plist */,
+				B1C809892AA0DE7300985ECB /* CustomNotification.swift */,
 			);
 			path = "catalyst-searchbar";
+			sourceTree = "<group>";
+		};
+		B1C809822AA0582300985ECB /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				B1C809832AA0583500985ECB /* UIColor+Extensions.swift */,
+				B1C8097B2AA0541B00985ECB /* NibLoadable.swift */,
+				B1C809852AA0599F00985ECB /* UIView+Extensions.swift */,
+			);
+			path = utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +122,9 @@
 			dependencies = (
 			);
 			name = "catalyst-searchbar";
+			packageProductDependencies = (
+				B1C8097E2AA055C600985ECB /* Composure */,
+			);
 			productName = "catalyst-searchbar";
 			productReference = B156ECFB2A9FCBD900199AFE /* catalyst-searchbar.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +153,9 @@
 				Base,
 			);
 			mainGroup = B156ECF22A9FCBD900199AFE;
+			packageReferences = (
+				B1C8097D2AA055C600985ECB /* XCRemoteSwiftPackageReference "Composure" */,
+			);
 			productRefGroup = B156ECFC2A9FCBD900199AFE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,9 +170,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B156ED0B2A9FCBDB00199AFE /* LaunchScreen.storyboard in Resources */,
+				B1C8097A2A9FF8CD00985ECB /* TagCell.xib in Resources */,
+				B156ED162A9FD93000199AFE /* Main.storyboard in Resources */,
 				B156ED082A9FCBDB00199AFE /* Assets.xcassets in Resources */,
-				B156ED062A9FCBD900199AFE /* Main.storyboard in Resources */,
+				B156ED142A9FD5D100199AFE /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,32 +184,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1C809762A9FEF7100985ECB /* TagViewModel.swift in Sources */,
 				B156ED032A9FCBD900199AFE /* ViewController.swift in Sources */,
+				B1C8098A2AA0DE7300985ECB /* CustomNotification.swift in Sources */,
+				B1C809882AA0C86000985ECB /* ToolbarDelegate.swift in Sources */,
+				B1C809792A9FF8CD00985ECB /* TagCell.swift in Sources */,
+				B1C809862AA0599F00985ECB /* UIView+Extensions.swift in Sources */,
+				B1C809842AA0583500985ECB /* UIColor+Extensions.swift in Sources */,
+				B1C8097C2AA0541B00985ECB /* NibLoadable.swift in Sources */,
 				B156ECFF2A9FCBD900199AFE /* AppDelegate.swift in Sources */,
 				B156ED012A9FCBD900199AFE /* SceneDelegate.swift in Sources */,
+				B1C809812AA055EF00985ECB /* TagsLayoutSection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		B156ED042A9FCBD900199AFE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B156ED052A9FCBD900199AFE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		B156ED092A9FCBDB00199AFE /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B156ED0A2A9FCBDB00199AFE /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B156ED0D2A9FCBDB00199AFE /* Debug */ = {
@@ -285,16 +320,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = "catalyst-searchbar/catalyst-searchbar.entitlements";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L9RBVTH4A6;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = L9RBVTH4A6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "catalyst-searchbar/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,9 +341,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.eclypse.catalyst-searchbar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
@@ -313,16 +356,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = "catalyst-searchbar/catalyst-searchbar.entitlements";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L9RBVTH4A6;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "catalyst-searchbar/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,9 +376,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.eclypse.catalyst-searchbar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
 		};
@@ -358,6 +408,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B1C8097D2AA055C600985ECB /* XCRemoteSwiftPackageReference "Composure" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/eclypse-tms/Composure";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B1C8097E2AA055C600985ECB /* Composure */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1C8097D2AA055C600985ECB /* XCRemoteSwiftPackageReference "Composure" */;
+			productName = Composure;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B156ECF32A9FCBD900199AFE /* Project object */;
 }
