@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         toolbarDelegate = ToolbarDelegate()
-        toolbarDelegate.shouldUseNSSearchBar = false
+        toolbarDelegate.shouldUseAppKitSearchBar = true
         
         #if targetEnvironment(macCatalyst)
         let toolBar = NSToolbar(identifier: "primary")
@@ -27,11 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         toolBar.displayMode = .iconOnly
         toolBar.allowsUserCustomization = false
-//        if #available(macCatalyst 16.0, *) {
-//            toolBar?.centeredItemIdentifiers = [MacToolbarItem.keyActionsSelector.toolbarIdentifier]
-//        } else {
-//            toolBar?.centeredItemIdentifier = MacToolbarItem.keyActionsSelector.toolbarIdentifier
-//        }
+
         windowScene.title = "catalyst-searchbar"
         windowScene.titlebar?.toolbar = toolBar
         windowScene.titlebar?.separatorStyle = .shadow

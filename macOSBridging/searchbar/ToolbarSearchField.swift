@@ -7,21 +7,22 @@
 
 import AppKit
 
-/// ToolbarSearchField
+/// ToolbarSearchField is wrapper around ToolbarSearchFieldCell
 class ToolbarSearchField: NSSearchField, CancelSearchDelegate {
     
-    weak var cancelButtonDelegate: CancelSearchDelegate?
+    weak var cancelSearchDelegate: CancelSearchDelegate?
     
     convenience init() {
         self.init(frame: .zero)
         
         let customCell = ToolbarSearchFieldCell()
-        customCell.cancelButtonDelegate = self
+        customCell.cancelButtonDelegate = self // in order to receive search cancelled button clicks
         cell = customCell
     }
     
     func didClickCancel() {
-        cancelButtonDelegate?.didClickCancel()
-        self.resignFirstResponder()
+        //we need to relay the cancel search trigger to SearchbarToolItem
+        cancelSearchDelegate?.didClickCancel()
+        self.resignFirstResponder() //optional
     }
 }

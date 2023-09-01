@@ -31,7 +31,8 @@ class ViewController: UIViewController, UICollectionViewDelegate {
     }
     
     private func configureNotificationListening() {
-        NotificationCenter.default.addObserver(self, selector: #selector(userPerformedSearch(_:)), name: CustomNotification.toolbarSearchBarTextChanged.name, object: nil)
+        // do not forget to remove self from observing notifications in order to prevent memory leaks
+        NotificationCenter.default.addObserver(self, selector: #selector(userPerformedSearch(_:)), name: InternalNotification.toolbarSearchBarTextChanged.name, object: nil)
     }
 
     private func configureCollectionView() {
@@ -59,6 +60,8 @@ class ViewController: UIViewController, UICollectionViewDelegate {
     }
     
     
+    // Do not do this in a shipping application.
+    /// starts the the
     private func initiateDataDownload() {
         customDispatchQueue.async { [weak self] in
             guard let strongSelf = self else { return }
@@ -142,16 +145,18 @@ class ViewController: UIViewController, UICollectionViewDelegate {
         let strippedString = searchQuery.trimmingCharacters(in: whitespaceCharacterSet)
         
         if strippedString.count == 0 {
+            //if the string is all whitespace, we restore the displayed tags back to all tags
             displayedTags = allTags
         } else {
+            
             let searchComponents = strippedString.components(separatedBy: CharacterSet.whitespacesAndNewlines)
             
             displayedTags = allTags.filter { eachViewModel -> Bool in
                 
-                //assume first we should include this language
+                //assume first we should include this view model
                 var shouldIncludeThisViewModel = true
                 
-                //only include this language if all the search components are contained
+                //only include this view model if all the search components are contained
                 //this makes an "AND" search
                 for eachSearchComponent in searchComponents {
                     let searchComponentContained = eachViewModel.name.localizedCaseInsensitiveContains(eachSearchComponent)

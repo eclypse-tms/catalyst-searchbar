@@ -8,6 +8,7 @@
 import UIKit
 
 extension UIView {
+    /// rounds the corners of any view
     func roundCorners(cornerRadius: CGFloat) {
         self.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner, .layerMaxXMaxYCorner, .layerMaxXMinYCorner]
         self.layer.cornerRadius = cornerRadius

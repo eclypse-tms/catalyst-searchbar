@@ -8,10 +8,15 @@
 import UIKit
 
 class ToolbarDelegate: NSObject {
-    var shouldUseNSSearchBar = false
+    /// when true the example app uses AppKit's Search Bar. Otherwise it embeds a
+    /// UIKit Search Bar in the Toolbar.
+    var shouldUseAppKitSearchBar = false
 }
 
 extension ToolbarDelegate: UISearchBarDelegate {
+    // one way to communicate between your Toolbar and ViewControllers is to use NotificationCenter.
+    // please note that this is just an example. there are other ways to to receive messages
+    // from the ToolbarDelegate.
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         NotificationCenter.default.post(name: InternalNotification.toolbarSearchBarTextChanged.name, object: searchText)
     }
@@ -24,7 +29,7 @@ extension ToolbarDelegate: NSToolbarDelegate {
     }
     
     func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
-        if shouldUseNSSearchBar {
+        if shouldUseAppKitSearchBar {
             return [.flexibleSpace, .favorites, .nsSearchBar]
         } else {
             return [.flexibleSpace, .favorites, .uiSearchBar]
@@ -40,16 +45,24 @@ extension ToolbarDelegate: NSToolbarDelegate {
             uiSearchBar.placeholder = NSLocalizedString("search_placeholder", comment: "")
             uiSearchBar.sizeToFit() //as of XCode 14 and macOS 13 - I could not find a way to correctly size this search bar
             uiSearchBar.delegate = self
-            let uibarButtonItem = UIBarButtonItem(customView: uiSearchBar)
-            let item = NSToolbarItem(itemIdentifier: itemIdentifier, barButtonItem: uibarButtonItem)
             
-            toolbarItemToInsert = item
+            // !!! Warning !!!
+            // using custom views is not supported when targeting macOS 12 or earlier
+            // see https://developer.apple.com/documentation/appkit/nstoolbaritem/3375792-init
+            let uibarButtonItem = UIBarButtonItem(customView: uiSearchBar)
+            let newItemToAdd = NSToolbarItem(itemIdentifier: itemIdentifier, barButtonItem: uibarButtonItem)
+            newItemToAdd.isBordered = false
+            toolbarItemToInsert = newItemToAdd
         case .nsSearchBar:
             if let frameworksPath = Bundle.main.privateFrameworksPath {
                 let bundlePath = "\(frameworksPath)/macOSBridging.framework"
                 do {
+                    //we want to check whether we can load this dependent framework
+                    //make sure the name of the framework is correct
                     try Bundle(path: bundlePath)?.loadAndReturnError()
-                    _ = Bundle(path: bundlePath)!
+                    _ = Bundle(path: bundlePath)! //at this point, we can load this!
+                    
+                    //we have to use some Objective-C trickery to load the SearchbarToolItem from AppKit
                     if let searchbarToolItemClass = NSClassFromString("macOSBridging.SearchbarToolItem") as? NSToolbarItem.Type {
                         let newItemToAdd = searchbarToolItemClass.init(itemIdentifier: itemIdentifier)
                         newItemToAdd.isBordered = false
@@ -61,11 +74,13 @@ extension ToolbarDelegate: NSToolbarDelegate {
                 }
             }
         case .favorites:
-            let item = NSToolbarItem(itemIdentifier: itemIdentifier)
-            item.image = UIImage(systemName: "heart")
-            item.label = "Favorites"
-            item.action = #selector(ViewController.didClickOnFavorites(_:))
-            toolbarItemToInsert = item
+            // added for example purposes
+            let newItemToAdd = NSToolbarItem(itemIdentifier: itemIdentifier)
+            newItemToAdd.image = UIImage(systemName: "heart")
+            newItemToAdd.label = "Favorites"
+            newItemToAdd.isBordered = false
+            newItemToAdd.action = #selector(ViewController.didClickOnFavorites(_:))
+            toolbarItemToInsert = newItemToAdd
         default:
             break
         }
