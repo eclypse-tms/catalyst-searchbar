@@ -160,8 +160,8 @@
 			isa = PBXGroup;
 			children = (
 				B1C809B02AA102D100985ECB /* macOSBridging.h */,
+				B1F5CD3F2AA295EF00CE3057 /* notifications */,
 				B1F5CD2D2AA123B300CE3057 /* searchbar */,
-				B1F5CD242AA118B800CE3057 /* InternalNotification.swift */,
 			);
 			path = macOSBridging;
 			sourceTree = "<group>";
@@ -209,6 +209,14 @@
 				B1F5CD202AA1174400CE3057 /* CancelSearchDelegate.swift */,
 			);
 			path = searchbar;
+			sourceTree = "<group>";
+		};
+		B1F5CD3F2AA295EF00CE3057 /* notifications */ = {
+			isa = PBXGroup;
+			children = (
+				B1F5CD242AA118B800CE3057 /* InternalNotification.swift */,
+			);
+			path = notifications;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
