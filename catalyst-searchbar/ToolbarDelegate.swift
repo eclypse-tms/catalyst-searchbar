@@ -30,9 +30,9 @@ extension ToolbarDelegate: NSToolbarDelegate {
     
     func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
         if shouldUseAppKitSearchBar {
-            return [.flexibleSpace, .favorites, .nsSearchBar]
+            return [.flexibleSpace, .share, .nsSearchBar]
         } else {
-            return [.flexibleSpace, .favorites, .uiSearchBar]
+            return [.flexibleSpace, .share, .uiSearchBar]
         }
     }
     
@@ -50,7 +50,9 @@ extension ToolbarDelegate: NSToolbarDelegate {
             // using custom views is not supported when targeting macOS 12 or earlier
             // see https://developer.apple.com/documentation/appkit/nstoolbaritem/3375792-init
             let uibarButtonItem = UIBarButtonItem(customView: uiSearchBar)
+            uibarButtonItem.width = 180
             let newItemToAdd = NSToolbarItem(itemIdentifier: itemIdentifier, barButtonItem: uibarButtonItem)
+            
             newItemToAdd.isBordered = false
             toolbarItemToInsert = newItemToAdd
         case .nsSearchBar:
@@ -78,8 +80,32 @@ extension ToolbarDelegate: NSToolbarDelegate {
             let newItemToAdd = NSToolbarItem(itemIdentifier: itemIdentifier)
             newItemToAdd.image = UIImage(systemName: "heart")
             newItemToAdd.label = "Favorites"
-            newItemToAdd.isBordered = false
-            newItemToAdd.action = #selector(ViewController.didClickOnFavorites(_:))
+            newItemToAdd.isBordered = true
+            newItemToAdd.action = #selector(TagsViewController.didClickOnToolbarItem(_:))
+            toolbarItemToInsert = newItemToAdd
+        case .addnew:
+            // added for example purposes
+            let newItemToAdd = NSToolbarItem(itemIdentifier: itemIdentifier)
+            newItemToAdd.image = UIImage(systemName: "plus")
+            newItemToAdd.label = "Add New"
+            newItemToAdd.isBordered = true
+            newItemToAdd.action = #selector(TagsViewController.didClickOnToolbarItem(_:))
+            toolbarItemToInsert = newItemToAdd
+        case .share:
+            // added for example purposes
+            let newItemToAdd = NSToolbarItem(itemIdentifier: itemIdentifier)
+            newItemToAdd.image = UIImage(systemName: "square.and.arrow.up")
+            newItemToAdd.label = "Share"
+            newItemToAdd.isBordered = true
+            newItemToAdd.action = #selector(TagsViewController.didClickOnToolbarItem(_:))
+            toolbarItemToInsert = newItemToAdd
+        case .browse:
+            // added for example purposes
+            let newItemToAdd = NSToolbarItem(itemIdentifier: itemIdentifier)
+            newItemToAdd.image = UIImage(systemName: "network")
+            newItemToAdd.label = "Browse"
+            newItemToAdd.isBordered = true
+            newItemToAdd.action = #selector(TagsViewController.didClickOnToolbarItem(_:))
             toolbarItemToInsert = newItemToAdd
         default:
             break
@@ -93,6 +119,9 @@ extension NSToolbarItem.Identifier {
     static let favorites = NSToolbarItem.Identifier("topDomain.company.application.toolbaritem.favorites")
     static let uiSearchBar = NSToolbarItem.Identifier("topDomain.company.application.toolbaritem.uisearchbar")
     static let nsSearchBar = NSToolbarItem.Identifier("topDomain.company.application.toolbaritem.nssearchbar")
+    static let addnew = NSToolbarItem.Identifier("topDomain.company.application.toolbaritem.addnew")
+    static let share = NSToolbarItem.Identifier("topDomain.company.application.toolbaritem.share")
+    static let browse = NSToolbarItem.Identifier("topDomain.company.application.toolbaritem.browse")
 }
 
 #endif

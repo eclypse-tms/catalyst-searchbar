@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  TagsViewController.swift
 //  
 //  Created by Deniz Nessa on 8/30/23.
 //  Copyright © 2023 Eclypse Software, LLC. All rights reserved.
@@ -8,7 +8,7 @@
 import UIKit
 import Composure
 
-class ViewController: UIViewController, UICollectionViewDelegate {
+class TagsViewController: UIViewController, UICollectionViewDelegate {
     
     @IBOutlet private weak var mainCollectionView: UICollectionView!
     private var dataSource: UICollectionViewDiffableDataSource<Int, String>! //
@@ -87,15 +87,15 @@ class ViewController: UIViewController, UICollectionViewDelegate {
         allTags.append(TagViewModel(name: "collection", hexColor: "F277C"))
         allTags.append(TagViewModel(name: "highway", hexColor: "821CBE"))
         allTags.append(TagViewModel(name: "emotion", hexColor: "7C0250"))
-        allTags.append(TagViewModel(name: "bedroom", hexColor: "D4759B"))
-        allTags.append(TagViewModel(name: "weakness", hexColor: "C43A75"))
+        allTags.append(TagViewModel(name: "paper", hexColor: "D4759B"))
+        allTags.append(TagViewModel(name: "kitchen", hexColor: "C43A75"))
         allTags.append(TagViewModel(name: "leadership", hexColor: "4AAF"))
         allTags.append(TagViewModel(name: "policy", hexColor: "8294DB"))
-        allTags.append(TagViewModel(name: "affair", hexColor: "903BF2"))
+        allTags.append(TagViewModel(name: "headphones", hexColor: "903BF2"))
         allTags.append(TagViewModel(name: "poet", hexColor: "E46CF9"))
         allTags.append(TagViewModel(name: "health", hexColor: "C65FE1"))
         allTags.append(TagViewModel(name: "relation", hexColor: "04E890"))
-        allTags.append(TagViewModel(name: "boyfriend", hexColor: "E3FBF4"))
+        allTags.append(TagViewModel(name: "outlet", hexColor: "E3FBF4"))
         allTags.append(TagViewModel(name: "director", hexColor: "4AB4DA"))
         allTags.append(TagViewModel(name: "republic", hexColor: "3A52DC"))
         allTags.append(TagViewModel(name: "celebration", hexColor: "DC619E"))
@@ -126,8 +126,8 @@ class ViewController: UIViewController, UICollectionViewDelegate {
         loadDataIntoSnapshot()
     }
     
-    @objc func didClickOnFavorites(_ sender: Any?) {
-        print("user clicked on favorites button")
+    @objc func didClickOnToolbarItem(_ sender: Any?) {
+        print("user clicked on a button")
     }
     
     @objc func userPerformedSearch(_ notification: Notification) {
