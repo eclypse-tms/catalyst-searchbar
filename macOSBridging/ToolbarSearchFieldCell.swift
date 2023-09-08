@@ -48,6 +48,4 @@ class ToolbarSearchFieldCell: NSSearchFieldCell {
             perform(validOriginalAction)
         }
     }
-    
-    
 }

@@ -1,5 +1,5 @@
 //
-//  SearchbarToolItem.swift
+//  CustomSearchbarToolItem.swift
 //  
 //  Created by Deniz Nessa on 8/31/23.
 //  Copyright © 2023 Eclypse Software, LLC. All rights reserved.
@@ -8,7 +8,7 @@
 import AppKit
 
 @objc
-class SearchbarToolItem: NSToolbarItem, NSSearchFieldDelegate, CancelSearchDelegate {
+class CustomSearchbarToolItem: NSToolbarItem, NSSearchFieldDelegate, CancelSearchDelegate {
     private let searchField = ToolbarSearchField()
     
     override init(itemIdentifier: NSToolbarItem.Identifier) {

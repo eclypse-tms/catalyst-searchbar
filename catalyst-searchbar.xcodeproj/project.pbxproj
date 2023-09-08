@@ -28,10 +28,11 @@
 		B1F5CD1D2AA116F900CE3057 /* ToolbarSearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F5CD1C2AA116F900CE3057 /* ToolbarSearchField.swift */; };
 		B1F5CD1F2AA1172700CE3057 /* ToolbarSearchFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F5CD1E2AA1172700CE3057 /* ToolbarSearchFieldCell.swift */; };
 		B1F5CD212AA1174400CE3057 /* CancelSearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F5CD202AA1174400CE3057 /* CancelSearchDelegate.swift */; };
-		B1F5CD232AA1176B00CE3057 /* SearchbarToolItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F5CD222AA1176B00CE3057 /* SearchbarToolItem.swift */; };
+		B1F5CD232AA1176B00CE3057 /* CustomSearchbarToolItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F5CD222AA1176B00CE3057 /* CustomSearchbarToolItem.swift */; };
 		B1F5CD252AA118B800CE3057 /* InternalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F5CD242AA118B800CE3057 /* InternalNotification.swift */; };
 		B1F5CD2A2AA11F6D00CE3057 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B1F5CD292AA11F6C00CE3057 /* Localizable.strings */; };
-		B1F5CD2E2AA275B900CE3057 /* macOSBridging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1C809AE2AA102D000985ECB /* macOSBridging.framework */; platformFilter = maccatalyst; };
+		B279C33F2AAAD0B000F3D75C /* DefaultSearchToolbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B279C33E2AAAD0B000F3D75C /* DefaultSearchToolbarItem.swift */; };
+		B279C3412AAAD6B600F3D75C /* SearchToolbarVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B279C3402AAAD6B600F3D75C /* SearchToolbarVariant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,9 +83,11 @@
 		B1F5CD1C2AA116F900CE3057 /* ToolbarSearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarSearchField.swift; sourceTree = "<group>"; };
 		B1F5CD1E2AA1172700CE3057 /* ToolbarSearchFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarSearchFieldCell.swift; sourceTree = "<group>"; };
 		B1F5CD202AA1174400CE3057 /* CancelSearchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelSearchDelegate.swift; sourceTree = "<group>"; };
-		B1F5CD222AA1176B00CE3057 /* SearchbarToolItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchbarToolItem.swift; sourceTree = "<group>"; };
+		B1F5CD222AA1176B00CE3057 /* CustomSearchbarToolItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchbarToolItem.swift; sourceTree = "<group>"; };
 		B1F5CD242AA118B800CE3057 /* InternalNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalNotification.swift; sourceTree = "<group>"; };
 		B1F5CD292AA11F6C00CE3057 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		B279C33E2AAAD0B000F3D75C /* DefaultSearchToolbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSearchToolbarItem.swift; sourceTree = "<group>"; };
+		B279C3402AAAD6B600F3D75C /* SearchToolbarVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchToolbarVariant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +95,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1F5CD2E2AA275B900CE3057 /* macOSBridging.framework in Frameworks */,
 				B1C8097F2AA055C600985ECB /* Composure in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,6 +138,7 @@
 				B1C809892AA0DE7300985ECB /* InternalNotification.swift */,
 				B156ED002A9FCBD900199AFE /* SceneDelegate.swift */,
 				B1C809872AA0C86000985ECB /* ToolbarDelegate.swift */,
+				B279C3402AAAD6B600F3D75C /* SearchToolbarVariant.swift */,
 				B156ED072A9FCBDB00199AFE /* Assets.xcassets */,
 				B156ED132A9FD5D100199AFE /* LaunchScreen.xib */,
 				B1F5CD282AA11F4E00CE3057 /* localization */,
@@ -160,10 +163,11 @@
 			isa = PBXGroup;
 			children = (
 				B1C809B02AA102D100985ECB /* macOSBridging.h */,
+				B279C33E2AAAD0B000F3D75C /* DefaultSearchToolbarItem.swift */,
 				B1F5CD242AA118B800CE3057 /* InternalNotification.swift */,
 				B1F5CD1E2AA1172700CE3057 /* ToolbarSearchFieldCell.swift */,
 				B1F5CD1C2AA116F900CE3057 /* ToolbarSearchField.swift */,
-				B1F5CD222AA1176B00CE3057 /* SearchbarToolItem.swift */,
+				B1F5CD222AA1176B00CE3057 /* CustomSearchbarToolItem.swift */,
 				B1F5CD202AA1174400CE3057 /* CancelSearchDelegate.swift */,
 			);
 			path = macOSBridging;
@@ -332,6 +336,7 @@
 				B1C809792A9FF8CD00985ECB /* TagCell.swift in Sources */,
 				B1C809862AA0599F00985ECB /* UIView+Extensions.swift in Sources */,
 				B1C809842AA0583500985ECB /* UIColor+Extensions.swift in Sources */,
+				B279C3412AAAD6B600F3D75C /* SearchToolbarVariant.swift in Sources */,
 				B1C8097C2AA0541B00985ECB /* NibLoadable.swift in Sources */,
 				B156ECFF2A9FCBD900199AFE /* AppDelegate.swift in Sources */,
 				B156ED012A9FCBD900199AFE /* SceneDelegate.swift in Sources */,
@@ -345,7 +350,8 @@
 			files = (
 				B1F5CD1F2AA1172700CE3057 /* ToolbarSearchFieldCell.swift in Sources */,
 				B1F5CD212AA1174400CE3057 /* CancelSearchDelegate.swift in Sources */,
-				B1F5CD232AA1176B00CE3057 /* SearchbarToolItem.swift in Sources */,
+				B1F5CD232AA1176B00CE3057 /* CustomSearchbarToolItem.swift in Sources */,
+				B279C33F2AAAD0B000F3D75C /* DefaultSearchToolbarItem.swift in Sources */,
 				B1F5CD252AA118B800CE3057 /* InternalNotification.swift in Sources */,
 				B1F5CD1D2AA116F900CE3057 /* ToolbarSearchField.swift in Sources */,
 			);

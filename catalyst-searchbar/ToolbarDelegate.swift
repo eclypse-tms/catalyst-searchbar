@@ -10,7 +10,7 @@ import UIKit
 class ToolbarDelegate: NSObject {
     /// when true the example app uses AppKit's Search Bar. Otherwise it embeds a
     /// UIKit Search Bar in the Toolbar.
-    var shouldUseAppKitSearchBar = false
+    var searchBarVariant = SearchToolbarVariant.uiSearchBar
 }
 
 extension ToolbarDelegate: UISearchBarDelegate {
@@ -29,11 +29,17 @@ extension ToolbarDelegate: NSToolbarDelegate {
     }
     
     func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
-        if shouldUseAppKitSearchBar {
-            return [.flexibleSpace, .share, .nsSearchBar]
-        } else {
-            return [.flexibleSpace, .share, .uiSearchBar]
+        var itemIdentifiersInToolbar: [NSToolbarItem.Identifier] = [.flexibleSpace, .share]
+        switch searchBarVariant {
+        case .uiSearchBar:
+            itemIdentifiersInToolbar.append(.uiSearchBar)
+        case .nsSearchBarCustom:
+            itemIdentifiersInToolbar.append(.nsSearchBarCustom)
+        case .nsSearchBarDefault:
+            itemIdentifiersInToolbar.append(.nsSearchBarDefault)
         }
+        
+        return itemIdentifiersInToolbar
     }
     
     func toolbar(_ toolbar: NSToolbar, itemForItemIdentifier itemIdentifier: NSToolbarItem.Identifier, willBeInsertedIntoToolbar flag: Bool) -> NSToolbarItem? {
@@ -55,7 +61,7 @@ extension ToolbarDelegate: NSToolbarDelegate {
             
             newItemToAdd.isBordered = false
             toolbarItemToInsert = newItemToAdd
-        case .nsSearchBar:
+        case .nsSearchBarCustom:
             if let frameworksPath = Bundle.main.privateFrameworksPath {
                 let bundlePath = "\(frameworksPath)/macOSBridging.framework"
                 do {
@@ -65,11 +71,35 @@ extension ToolbarDelegate: NSToolbarDelegate {
                     _ = Bundle(path: bundlePath)! //at this point, we can load this!
                     
                     //we have to use some Objective-C trickery to load the SearchbarToolItem from AppKit
-                    if let searchbarToolItemClass = NSClassFromString("macOSBridging.SearchbarToolItem") as? NSToolbarItem.Type {
+                    if let searchbarToolItemClass = NSClassFromString("macOSBridging.CustomSearchbarToolItem") as? NSToolbarItem.Type {
                         let newItemToAdd = searchbarToolItemClass.init(itemIdentifier: itemIdentifier)
                         newItemToAdd.isBordered = false
                         toolbarItemToInsert = newItemToAdd
                         print("Successfully loaded NSSearchBar into our toolbar!!!")
+                    } else {
+                        print("There is no class with the name CustomSearchbarToolItem in macOSBridging.framework - make sure you spelled the name correctly")
+                    }
+                } catch {
+                    print("error while loading the dependent framework: \(error.localizedDescription)")
+                }
+            }
+        case .nsSearchBarDefault:
+            if let frameworksPath = Bundle.main.privateFrameworksPath {
+                let bundlePath = "\(frameworksPath)/macOSBridging.framework"
+                do {
+                    //we want to check whether we can load this dependent framework
+                    //make sure the name of the framework is correct
+                    try Bundle(path: bundlePath)?.loadAndReturnError()
+                    _ = Bundle(path: bundlePath)! //at this point, we can load this!
+                    
+                    //we have to use some Objective-C trickery to load the SearchbarToolItem from AppKit
+                    if let searchbarToolItemClass = NSClassFromString("macOSBridging.DefaultSearchToolbarItem") as? NSToolbarItem.Type {
+                        let newItemToAdd = searchbarToolItemClass.init(itemIdentifier: itemIdentifier)
+                        newItemToAdd.isBordered = false
+                        toolbarItemToInsert = newItemToAdd
+                        print("Successfully loaded ResizableSearchToolbarItem into our toolbar!!!")
+                    } else {
+                        print("There is no class with the name DefaultSearchToolbarItem in macOSBridging.framework - make sure you spelled the name correctly")
                     }
                 } catch {
                     print("error while loading the dependent framework: \(error.localizedDescription)")
@@ -118,7 +148,8 @@ extension ToolbarDelegate: NSToolbarDelegate {
 extension NSToolbarItem.Identifier {
     static let favorites = NSToolbarItem.Identifier("topDomain.company.application.toolbaritem.favorites")
     static let uiSearchBar = NSToolbarItem.Identifier("topDomain.company.application.toolbaritem.uisearchbar")
-    static let nsSearchBar = NSToolbarItem.Identifier("topDomain.company.application.toolbaritem.nssearchbar")
+    static let nsSearchBarCustom = NSToolbarItem.Identifier("topDomain.company.application.toolbaritem.nsSearchBarCustom")
+    static let nsSearchBarDefault = NSToolbarItem.Identifier("topDomain.company.application.toolbaritem.nsSearchBarDefault")
     static let addnew = NSToolbarItem.Identifier("topDomain.company.application.toolbaritem.addnew")
     static let share = NSToolbarItem.Identifier("topDomain.company.application.toolbaritem.share")
     static let browse = NSToolbarItem.Identifier("topDomain.company.application.toolbaritem.browse")
