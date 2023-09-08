@@ -9,7 +9,7 @@ This repository has been inspired by a Stackoverflow question where the OP was a
 The repository includes an example project where you can run and see the implementation details. Feel free to use this solution in your project. However, the example uses bunch of shortcuts that are not central to the primary point of this project. Please note that this has been tested with macOS 13. 
 
 ## 3 Different Methods
-Before running the example project, open the SceneDelegate in XCode. Find the line that says `toolbarDelegate.searchBarVariant = .nsSearchBarCustom`. Run the project with variants and see how they are different. The other possibilities are:
+There are 3 different methods showcased in this example project. There is a line in SceneDelegate that controls the searchbar flavor: `toolbarDelegate.searchBarVariant = .nsSearchBarCustom`. You may run the example with other variants and see how they are different from one and other. The other possibilities are:
 ```
 enum SearchToolbarVariant: Int {
     /// uses UISearchBar from UIKit as a custom view in NSToolbarItem
@@ -22,13 +22,11 @@ enum SearchToolbarVariant: Int {
     case nsSearchBarDefault
 }
 ```
-Try running the project with other variants. As of this writing, this is how the app renders on macOS 13 depending on the variant you choose. 
 
-#### SearchToolbarVariant.uiSearchBar
+#### .uiSearchBar variant
 
 <img width="600" alt="Search bar with UIKit" src="https://github.com/eclypse-tms/catalyst-searchbar/assets/10276667/2cc91d45-c8dc-4ce0-9778-6fcaf0ab0f22">
 
-
-#### SearchToolbarVariant.nsSearchBarCustom or SearchToolbarVariant.nsSearchBarDefault
+#### .nsSearchBarCustom / .nsSearchBarDefault variant
 
 <img width="600" alt="Search bar with AppKit" src="https://github.com/eclypse-tms/catalyst-searchbar/assets/10276667/43902546-0859-496d-a646-a1129fb8343b">
