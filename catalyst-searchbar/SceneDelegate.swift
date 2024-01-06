@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         toolbarDelegate = ToolbarDelegate()
-        toolbarDelegate.searchBarVariant = .nsSearchBarCustom //try other variants
+        toolbarDelegate.searchBarVariant = .nsSearchBarDefault //try other variants
         
         #if targetEnvironment(macCatalyst)
         let toolBar = NSToolbar(identifier: "primary")
