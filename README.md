@@ -37,4 +37,14 @@ enum SearchToolbarVariant: Int {
 
 ## Troubleshooting
 
-The example project does not have team or account settings configured. If you have trouble running the project, you may want to change the bundle identifier, configure a team and a provisioning profile according to your own account settings. The example project is 
+The example project does not have team or account settings configured. If you have trouble running the project or encounter errors while loading the framework's bundle, you may want to change the bundle identifier, configure a team and a provisioning profile according to your own account settings as shown below. 
+
+#### Main Target
+![Main Target](https://github.com/eclypse-tms/catalyst-searchbar/assets/10276667/7b2b13b4-adcf-4044-b028-244fcbee9839)
+
+#### macOS Target
+![macOS Framework](https://github.com/eclypse-tms/catalyst-searchbar/assets/10276667/c9de5d2a-5217-4e49-bc84-d00a19cc2fb5)
+
+#### App entitlements
+You can also disable App sandboxing and other settings as necessary in order to be able to load the linked framework.
+![Entitlements file](https://github.com/eclypse-tms/catalyst-searchbar/assets/10276667/0a0a7c21-de95-42d5-846b-875242b873b1)
