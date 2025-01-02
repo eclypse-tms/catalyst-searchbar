@@ -1,4 +1,15 @@
-# catalyst-searchbar
+<p align="center">
+  <img width="150" height="150" src="./assets/app-icon.png">
+</p>
+
+<p align="center">
+    <img src="https://img.shields.io/badge/Swift-5.x-orange?logo=swift" alt="Swift 5.x">
+    <img src="https://img.shields.io/badge/iOS-15%2B-blue?logo=apple" alt="iOS 15+">
+    <img src="https://img.shields.io/badge/macOS-12%2B-royalblue?logo=apple" alt="macOS 12+">
+    <img src="https://img.shields.io/badge/License-MIT-lightgrey" alt="MIT License">
+</p>
+
+# macCatalyst Searchbar
 
 This repository has been inspired by a Stackoverflow question where the OP was asking how to add UISearchBar in a toolbar for a macCatalyst app (using NSToolbarItem). This was a legitimate question as Apple did not provide any mechanism to roll your own UIView in a macCatalyst toolbar at the time of the question. Having encountered a similar situation before and noticing that as of macOS 13 you can now put any UIView in the toolbar, we decided to test this. To our surprise, embedding a custom UIView in toolbar did not work as expected. However, we didn't give up and with some tinkering we were able to embed a NSSearchBar from AppKit into our macCatalyst application. See the resuls below:
 
@@ -47,4 +58,5 @@ The example project does not have team or account settings configured. If you ha
 
 #### App entitlements
 You can also disable App sandboxing and other settings as necessary in order to be able to load the linked framework.
+
 ![Entitlements file](https://github.com/eclypse-tms/catalyst-searchbar/assets/10276667/0a0a7c21-de95-42d5-846b-875242b873b1)
